@@ -1,0 +1,103 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="pages/js/DataTables/datatables.min.css"/>
+<script type="text/javascript" src="pages/js/DataTables/datatables.min.js"></script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Crear y editar Localizaciones</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Crear y editar
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Nueva localización</label>
+                        <input id="nuevaloc" class="form-control" placeholder="Nuevo nombre">  
+                        <br>
+                        <button type="button" class="btn btn-outline btn-default" id="btncrear">Crear</button>
+                    </div><hr>
+                    <div class="form-group">
+                        <span id="combolocs"></span> 
+                    </div>
+                </div>
+                <!-- /.panel-body -->            
+            </div>
+            <!-- /.panel -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Geolocalización
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Nombre de la localización</label>
+                        <input id="boxgeoloc" class="form-control" placeholder="Localización"><br>
+                        <button type="button" class="btn btn-outline btn-default" id="btnlocalizar">Geolocalizar</button><br><hr>
+                        <div class="col-sm-6"><label>Latitud</label><input id="boxlat" class="form-control"></div>
+                        <div class="col-sm-6"><label>Longitud</label><input id="boxlng" class="form-control"></div>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-6 -->
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Información
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="barra" id="barraUpload"><spam id="Evo"></spam></div>
+                    <span id="campo1"></span><br>
+                    <span id="campo2"></span><br>
+                    <span id="campo3"></span><br>
+                    <span id="campo4"></span>
+                    <span id="campo5"></span><br>
+                    <span id="campo6"></span><br>
+                    <span id="botones"></span>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Mapa
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+                        <div id="map"></div>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->
+
+<!-- Custom Theme JavaScript -->
+<script src="pages/js/B1.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNDrIrWABoaDtsu5TFcYieUHdJFd1YEPY&signed_in=true&callback=initMap" async defer></script>

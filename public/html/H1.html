@@ -1,0 +1,508 @@
+<!-- Marketing Icons Section -->
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">
+            Bienvenido a DondeEmprendo.es
+        </h1>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4><i class="fa fa-fw fa-check"></i> ¿Qué es DondeEmprendo.es?</h4>
+            </div>
+            <div class="panel-body">
+                <p>DondeEmprendo.es es una herramienta de ayuda para emprendedores o empresas, que quieran situar su negocio en Aragón. Por medio de cálculos ponderados de información poblacional, comercial, social, climática, etc. la aplicación te sugiere las ubicaciones más recomendables para tener éxito.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4><i class="fa fa-fw fa-gift"></i> Gratis, gratis y gratis.</h4>
+            </div>
+            <div class="panel-body">
+                <p>La correcta ubicación del negocio, puede ser fundamental para el crecimiento o cierre del negocio a medio o largo plazo. Pues bien, ¡esta información no te costará nada! Gracias a la colaboración del Gobierno de Aragón, Aragón Open Data y el Ayuntamiento de Zaragoza.</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4><i class="fa fa-fw fa-compass"></i> Fácil de usar</h4>
+            </div>
+            <div class="panel-body">
+                <p>Tan sencillo como rellenar el formulario, pulsa el botón calcular y... !ya lo tienes! Un listado con las ubicaciones óptimas para su negocio. Con valoraciones cuantitativas que te ayuden a comparar, y las ventajas y desventajas de cada sitio. Al final la decisión es sólo tuya.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+
+<!-- Contact Form -->
+<!-- In order to set the email address and subject line for the contact form go to the bin/contact_me.php file. -->
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <h2>Rellena el siguiente cuestionario</h2>
+        <form name="sentMessage" id="contactForm" novalidate>
+            <div class="panel panel-default" id="datosuser" style="display:block">
+                <div class="panel-heading">Tus datos</div>
+                <div class="panel-body">
+                    <p>Los datos registrados a continuación, será utilizados únicamente para llevar un control estadístico del perfil de las personas que utilizan este servicio.</p>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="user_sexo">Sexo</label><br />
+                            <div class="btn-group user_sexo" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="1">Hombre</button>
+                              <button type="button" class="btn btn-default" value="2">Mujer</button>
+                              <button type="button" class="btn btn-default" value="0">NS/NC</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="user_edad">Edad</label><br />
+                            <div class="btn-group user_edad" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="1">Menos de 25</button>
+                              <button type="button" class="btn btn-default" value="2">De 25 a 35</button>
+                              <button type="button" class="btn btn-default" value="3">De 35 a 45</button>
+                              <button type="button" class="btn btn-default" value="4">Más de 45</button>
+                              <button type="button" class="btn btn-default" value="0">NS/NC</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="user_motivo">Tu motivación para emprender es...</label><br />
+                            <div class="btn-group user_motivo" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="1">Autoempleo</button>
+                              <button type="button" class="btn btn-default" value="2">Necesidad económica</button>
+                              <button type="button" class="btn btn-default" value="3">Carácter emprendedor</button>
+                              <button type="button" class="btn btn-default" value="4">Otra</button>
+                              <button type="button" class="btn btn-default" value="0">NS/NC</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading">Tu sector</div>
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Busca por CNAE</label>
+                        <input id="buscacnae" class="form-control" placeholder="Número de CNAE"><br>
+                        <button type="button" class="btn btn-outline btn-default" id="btnbuscar">Buscar</button><br><br>
+                        <span id="combocnaes"></span><br>
+                        <div class="control-group form-group">
+                            <div class="controls">
+                                <label for="user_motivo">¿Quieres marcar tú tus propios criterios, o usar los criterios automáticos?</label><br><br>
+                                <div class="btn-group selector" role="group" aria-label="...">
+                                  <button type="button" class="btn btn-default" value="1">Manuales</button>
+                                  <button type="button" class="btn btn-default" value="0">Automáticos</button>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" id="btnver" class="btn btn-primary btn-md">Ver</button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-default" id="panel_clientes" style="display:none">
+                <div class="panel-heading">Clientes</div>
+                <div class="panel-body">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="client_1">Ciudadano en proximidad</label><br />
+                            <p>Personas que viven en la misma zona donde vamos a ubicar nuestro proyecto.</p>
+                            <div class="btn-group client_1" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="0">0</button>
+                              <button type="button" class="btn btn-default" value="1">1</button>
+                              <button type="button" class="btn btn-default" value="2">2</button>
+                              <button type="button" class="btn btn-default" value="3">3</button>
+                              <button type="button" class="btn btn-default" value="4">4</button>
+                              <button type="button" class="btn btn-default" value="5">5</button>
+                              <button type="button" class="btn btn-default" value="6">6</button>
+                              <button type="button" class="btn btn-default" value="7">7</button>
+                              <button type="button" class="btn btn-default" value="8">8</button>
+                              <button type="button" class="btn btn-default" value="9">9</button>
+                              <button type="button" class="btn btn-default" value="10">10</button>
+                              <button type="button" class="btn btn-default" value="0">NS/NC</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="client_2">Turistas</label><br />
+                            <p>Personas que vienen a visitar monumentos hostóricos, lugares de interés, por ocio deportivo...</p>
+                            <div class="btn-group client_2" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="0">0</button>
+                              <button type="button" class="btn btn-default" value="1">1</button>
+                              <button type="button" class="btn btn-default" value="2">2</button>
+                              <button type="button" class="btn btn-default" value="3">3</button>
+                              <button type="button" class="btn btn-default" value="4">4</button>
+                              <button type="button" class="btn btn-default" value="5">5</button>
+                              <button type="button" class="btn btn-default" value="6">6</button>
+                              <button type="button" class="btn btn-default" value="7">7</button>
+                              <button type="button" class="btn btn-default" value="8">8</button>
+                              <button type="button" class="btn btn-default" value="9">9</button>
+                              <button type="button" class="btn btn-default" value="10">10</button>
+                              <button type="button" class="btn btn-default" value="0">NS/NC</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="client_3">Viajeros</label><br />
+                            <p>Personas que está de paso en nuestra región.</p>
+                            <div class="btn-group client_3" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="0">0</button>
+                              <button type="button" class="btn btn-default" value="1">1</button>
+                              <button type="button" class="btn btn-default" value="2">2</button>
+                              <button type="button" class="btn btn-default" value="3">3</button>
+                              <button type="button" class="btn btn-default" value="4">4</button>
+                              <button type="button" class="btn btn-default" value="5">5</button>
+                              <button type="button" class="btn btn-default" value="6">6</button>
+                              <button type="button" class="btn btn-default" value="7">7</button>
+                              <button type="button" class="btn btn-default" value="8">8</button>
+                              <button type="button" class="btn btn-default" value="9">9</button>
+                              <button type="button" class="btn btn-default" value="10">10</button>
+                              <button type="button" class="btn btn-default" value="0">NS/NC</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="client_4">Empresas locales</label><br />
+                            <p>Nuestro producto o servicio va dirigido a empresas locales o regionales.</p>
+                            <div class="btn-group client_4" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="0">0</button>
+                              <button type="button" class="btn btn-default" value="1">1</button>
+                              <button type="button" class="btn btn-default" value="2">2</button>
+                              <button type="button" class="btn btn-default" value="3">3</button>
+                              <button type="button" class="btn btn-default" value="4">4</button>
+                              <button type="button" class="btn btn-default" value="5">5</button>
+                              <button type="button" class="btn btn-default" value="6">6</button>
+                              <button type="button" class="btn btn-default" value="7">7</button>
+                              <button type="button" class="btn btn-default" value="8">8</button>
+                              <button type="button" class="btn btn-default" value="9">9</button>
+                              <button type="button" class="btn btn-default" value="10">10</button>
+                              <button type="button" class="btn btn-default" value="0">NS/NC</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                            <label for="client_5">Exportación</label><br />
+                            <p>Nuestros productos van dirigidos principalmente al comercio nacional e internacional.</p>
+                            <div class="btn-group client_5" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="0">0</button>
+                              <button type="button" class="btn btn-default" value="1">1</button>
+                              <button type="button" class="btn btn-default" value="2">2</button>
+                              <button type="button" class="btn btn-default" value="3">3</button>
+                              <button type="button" class="btn btn-default" value="4">4</button>
+                              <button type="button" class="btn btn-default" value="5">5</button>
+                              <button type="button" class="btn btn-default" value="6">6</button>
+                              <button type="button" class="btn btn-default" value="7">7</button>
+                              <button type="button" class="btn btn-default" value="8">8</button>
+                              <button type="button" class="btn btn-default" value="9">9</button>
+                              <button type="button" class="btn btn-default" value="10">10</button>
+                              <button type="button" class="btn btn-default" value="0">NS/NC</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                          <label for="client_6">Nuestros clientes son principalmente...</label><br />
+                          <div class="btn-group client_6" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="1">Hombres</button>
+                              <button type="button" class="btn btn-default" value="2">Mujeres</button>
+                              <button type="button" class="btn btn-default" value="0">Ambos por igual</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <label for="multiselect1" style="clear:left">La edad de nuestros clientes/usuarios es... </label>
+                        <div class="controls">
+                          <div class="col-xs-5">
+                            <select name="from" id="multiselect1" class="form-control" size="8" multiple="multiple">
+                              <option value="1">Bebes de 0 a 4 años</option>
+                              <option value="2">Niños de 5 a 14 años</option>
+                              <option value="3">Adolescentes de 15 a 19 años</option>
+                              <option value="4">Jóvenes de 20 a 29 años</option>
+                              <option value="5">Jóvenes de 30 a 39 años</option>
+                              <option value="6">Adultos de 40 a 49 años</option>
+                              <option value="6">Adultos de 50 a 64 años</option>
+                              <option value="7">Jubilados mayores de 65 años</option>
+                            </select>
+                          </div>
+                          <div class="col-xs-2">
+                            <button type="button" id="multiselect1_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
+                            <button type="button" id="multiselect1_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                            <button type="button" id="multiselect1_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                            <button type="button" id="multiselect1_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
+                          </div>
+                          <div class="col-xs-5">
+                            <select name="to" id="multiselect1_to" class="form-control" size="8" multiple="multiple">
+                            </select>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                          <br>
+                          <label for="client_7">Poder adquisitivo de nuestros clientes es principalmente...</label><br />
+                          <div class="btn-group client_7" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="1">Alto</button>
+                              <button type="button" class="btn btn-default" value="2">Medio</button>
+                              <button type="button" class="btn btn-default" value="3">Bajo</button>
+                              <button type="button" class="btn btn-default" value="0">NS/NC</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ************************************************************************* -->
+            <div class="panel panel-default" id="panel_ubicacion" style="display:none">
+                <div class="panel-heading">Ubicación</div>
+                <div class="panel-body">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                          <br>
+                          <label for="ubic_1">Por motivos personales la ubicación debe de estar en...</label><br />
+                          <div class="btn-group ubic_1" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="1">Zaragoza</button>
+                              <button type="button" class="btn btn-default" value="2">Huesca</button>
+                              <button type="button" class="btn btn-default" value="3">Teruel</button>
+                              <button type="button" class="btn btn-default" value="0">NS/NC</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <label for="multiselect2">Metros cuadros que necesitamos... </label>
+                        <div class="controls">
+                          <div class="col-xs-5">
+                            <select name="from" id="multiselect2" class="form-control" size="8" multiple="multiple">
+                              <option value="1">Menos de 20 m2</option>
+                              <option value="2">Entre 20 m2 y 50 m2</option>
+                              <option value="3">Entre 51 m2 y 100 m2</option>
+                              <option value="4">Entre 101 m2 y 200 m2</option>
+                              <option value="5">Entre 201 m2 y 500 m2</option>
+                              <option value="6">Entre 501 m2 y 1000 m2</option>
+                              <option value="7">Más de 1000 m2</option>
+                            </select>
+                          </div>
+                          <div class="col-xs-2">
+                            <button type="button" id="multiselect2_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
+                            <button type="button" id="multiselect2_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                            <button type="button" id="multiselect2_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                            <button type="button" id="multiselect2_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
+                          </div>
+                          <div class="col-xs-5">
+                            <select name="to" id="multiselect2_to" class="form-control" size="8" multiple="multiple">
+                            </select>
+                          </div>
+                        </div>
+                    </div>
+                    <div style="clear:left"></div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                          <label for="ubic_2">Necesitamos temperaturas medias...</label><br />
+                          <div class="btn-group ubic_2" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="1">Bajas</button>
+                              <button type="button" class="btn btn-default" value="2">Medias</button>
+                              <button type="button" class="btn btn-default" value="3">Altas</button>
+                              <button type="button" class="btn btn-default" value="0">NS/NC</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear:left"></div>
+                    <div class="control-group form-group">
+                        <label for="multiselect3">Necesitamos estar cerca de...</label>
+                        <div class="controls">
+                          <div class="col-xs-5">
+                            <select name="from" id="multiselect3" class="form-control" size="8" multiple="multiple">
+                              <option value="1">Estaciones de esquí</option>
+                              <option value="2">Centros deportivos</option>
+                              <option value="3">Hospitales o centros médicos</option>
+                              <option value="4">Centros ocio</option>
+                              <option value="5">Centros comerciales</option>
+                              <option value="6">Calles de gran transito de personas</option>
+                              <option value="7">Próximos a autopistas y carreteras</option>
+                              <option value="8">Próximos a estaciones de tren</option>
+                              <option value="9">Monumentos y puntos de interés turístico</option>
+                              <option value="10">Hoteles</option>
+                            </select>
+                          </div>
+                          <div class="col-xs-2">
+                            <button type="button" id="multiselect3_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
+                            <button type="button" id="multiselect3_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                            <button type="button" id="multiselect3_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                            <button type="button" id="multiselect3_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
+                          </div>
+                          <div class="col-xs-5">
+                            <select name="to" id="multiselect3_to" class="form-control" size="8" multiple="multiple">
+                            </select>
+                          </div>
+                        </div>
+                    </div>
+                    <div style="clear:left"></div>
+                    <div class="control-group form-group">
+                        <label for="multiselect4">Servicios necesarios</label>
+                        <div class="controls">
+                          <div class="col-xs-5">
+                            <select name="from" id="multiselect4" class="form-control" size="8" multiple="multiple">
+                              <option value="1">Internet</option>
+                              <option value="2">Internet de alta velocidad</option>
+                              <option value="3">Cobertura móvil</option>
+                              <option value="4">Servicio de Taxi</option>
+                              <option value="5">Servicio de autobús</option>
+                            </select>
+                          </div>
+                          <div class="col-xs-2">
+                            <button type="button" id="multiselect4_rightAll" class="btn btn-block"><i class="glyphicon glyphicon-forward"></i></button>
+                            <button type="button" id="multiselect4_rightSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-right"></i></button>
+                            <button type="button" id="multiselect4_leftSelected" class="btn btn-block"><i class="glyphicon glyphicon-chevron-left"></i></button>
+                            <button type="button" id="multiselect4_leftAll" class="btn btn-block"><i class="glyphicon glyphicon-backward"></i></button>
+                          </div>
+                          <div class="col-xs-5">
+                            <select name="to" id="multiselect4_to" class="form-control" size="8" multiple="multiple">
+                            </select>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ************************************************************************* -->
+            <div class="panel panel-default" id="panel_personal" style="display:none">
+                <div class="panel-heading">Personal</div>
+                <div class="panel-body">
+                    <div class="control-group form-group">
+                        <div class="controls">
+                          <label for="pers_1">Necesitamos empleados con nivel de estudios...</label><br />
+                          <div class="btn-group pers_1" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="1">Poco cualificado</button>
+                              <button type="button" class="btn btn-default" value="2">Formación profesional</button>
+                              <button type="button" class="btn btn-default" value="3">Universitarios</button>
+                              <button type="button" class="btn btn-default" value="0">NS/NC</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                          <label for="pers_2">Nivel de experiencia...</label><br />
+                          <div class="btn-group pers_2" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="1">Recien titulados</button>
+                              <button type="button" class="btn btn-default" value="2">Menos de 5 años</button>
+                              <button type="button" class="btn btn-default" value="3">Más de 5 años</button>
+                              <button type="button" class="btn btn-default" value="0">NS/NC</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group form-group">
+                        <div class="controls">
+                          <label for="pers_3">Número de personas a contratar...</label><br />
+                          <div class="btn-group pers_3" role="group" aria-label="...">
+                              <button type="button" class="btn btn-default" value="1">Menos de 10</button>
+                              <button type="button" class="btn btn-default" value="2">Entre 11 y 50</button>
+                              <button type="button" class="btn btn-default" value="3">Más de 51</button>
+                              <button type="button" class="btn btn-default" value="0">NS/NC</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ************************************************************************* -->
+            <div class="panel" id="panel_calcular" style="display:none">
+              <button type="submit" id="btncalcular" class="btn btn-primary btn-md">Calcular</button>
+            </div>
+            <!-- ************************************************************************* -->
+<!-- MODELOS --> 
+           <!-- <div class="control-group form-group">
+                <div class="controls">
+                    <label>Phone Number:</label>
+                    <input type="tel" class="form-control" id="phone" required data-validation-required-message="Please enter your phone number.">
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <div class="controls">
+                    <label>Email Address:</label>
+                    <input type="email" class="form-control" id="email" required data-validation-required-message="Please enter your email address.">
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <div class="controls">
+                    <label>Message:</label>
+                    <textarea rows="10" cols="100" class="form-control" id="message" required data-validation-required-message="Please enter your message" maxlength="999" style="resize:none"></textarea>
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <div class="controls">
+                    <label>Message:</label>
+                    <div class="checkbox"><label><input type="checkbox" value="">Option 1</label></div>
+                    <div class="checkbox"><label><input type="checkbox" value="">Option 2</label></div>
+                    <div class="checkbox disabled"><label><input type="checkbox" value="" disabled>Option 3</label></div>
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <div class="controls">
+                    <label>Message:</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="">Option 1</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="">Option 2</label>
+                    <label class="checkbox-inline"><input type="checkbox" value="">Option 3</label>
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <div class="controls">
+                    <label>Message:</label>
+                    <div class="radio"><label><input type="radio" name="optradio">Option 1</label></div>
+                    <div class="radio"><label><input type="radio" name="optradio">Option 2</label></div>
+                    <div class="radio disabled"><label><input type="radio" name="optradio" disabled>Option 3</label></div>
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <div class="controls">
+                    <label>Button radio:</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">Option 1</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">Option 2</label>
+                    <label class="radio-inline"><input type="radio" name="optradio">Option 3</label>
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <div class="controls">
+                  <label for="sel1">Select list:</label>
+                  <select class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <div class="controls">
+                  <label for="sel1">Select list:</label>
+                  <select multiple class="form-control" id="sel1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                  </select>
+                </div>
+            </div>
+            <div class="control-group form-group">
+                <div class="controls">
+                  <label for="sel1">Select list:</label>
+                  <div class="btn-group" role="group" aria-label="...">
+                      <button type="button" class="btn btn-default">Left</button>
+                      <button type="button" class="btn btn-default">Middle</button>
+                      <button type="button" class="btn btn-default">Right</button>
+                    </div>
+                </div>
+            </div>  
+            <div id="success"></div>-->
+            <!-- For success/fail messages -->
+        </form>
+    </div>
+
+</div>
+<!-- /.row -->
+
+<script src="html/js/H1.js"></script>

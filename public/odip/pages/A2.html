@@ -1,0 +1,153 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="pages/js/DataTables/datatables.min.css"/>
+<script type="text/javascript" src="pages/js/DataTables/datatables.min.js"></script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Ver y editar Items</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Elige la tabla
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="form-group">
+                        <span id="combotbs"></span>
+                        <br>
+                        <label>Cambiar el nombre</label>
+                        <input id="nuevonombre" class="form-control" placeholder="Nuevo nombre">
+                    </div>   
+                    <p>
+                        <button type="button" class="btn btn-outline btn-default" id="btncambiar">Cambiar</button>
+                    </p>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <div class="panel panel-default" id="selcolumnas" style="display:none">
+                <div class="panel-heading">
+                    Elige las columnas clave
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label for="disabledSelect">Selecciona la columna del nombre.</label>
+                        <span id="combocol1"></span>
+                        <label for="disabledSelect">Selecciona la columna de la ubicación.</label>
+                        <span id="combocol2"></span>
+                    </div>   
+                    <p>
+                        <button type="button" class="btn btn-outline btn-default" id="btncargar">Cargar tabla</button>
+                    </p>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-6 -->
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Información de la tabla
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="barra" id="barraUpload"><spam id="Evo"></spam></div>
+                    <br>
+                    <span id="linktabla"></span><br>
+                    <span id="ncolumnas"></span><br>
+                    <span id="nfilas"></span><br><br>
+                    <span id="cabeceras"></span><br>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Datos contenidos en la tabla
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="dataTable_wrapper">
+
+                        <table id="exampleA2" class="table table-striped table-bordered table-hover display" width="100%"></table>
+
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Datos del Item seleccionado
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="form-group">
+                        <div class="col-sm-12"><label>Nombre</label><input id="colsel1" class="form-control"></div>
+                        <div class="col-sm-12"><label>Nombre ubicación / Dirección</label><input id="colsel2" class="form-control"></div>
+                        <div class="col-sm-12"><label>Localización asignada</label><spam id="combolocs"></spam><br><hr></div>
+                        <div class="col-sm-6"><label>Latitud</label><input id="colsel4" class="form-control"></div>
+                        <div class="col-sm-6"><label>Longitud</label><input id="colsel5" class="form-control"><br></div>
+                    </div>
+                    <p>
+                        <button type="button" class="btn btn-outline btn-default" id="btnguardar">Guardar cambios</button>
+                        <button type="button" class="btn btn-outline btn-default" id="btninsertar">Insertar como Item</button>
+                    </p>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-6 -->
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Geolocalización
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Nombre de la localización</label>
+                        <input id="boxgeoloc" class="form-control" placeholder="Localización"><br>
+                        <button type="button" class="btn btn-outline btn-default" id="btnlocalizar">Geolocalizar</button><br><hr>
+                        <div class="col-sm-6"><label>Latitud</label><input id="boxlat" class="form-control"></div>
+                        <div class="col-sm-6"><label>Longitud</label><input id="boxlng" class="form-control"><br></div>
+                    </div>
+                    <p>
+                        <button type="button" class="btn btn-outline btn-default" id="btnpasarGeoloc">Pasar al formulario</button>
+                    </p>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+</div>
+<!-- /.container-fluid -->
+
+<!-- Custom Theme JavaScript -->
+<script src="pages/js/A2.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNDrIrWABoaDtsu5TFcYieUHdJFd1YEPY&signed_in=true&callback=initMap" async defer></script>

@@ -1,0 +1,64 @@
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="pages/js/DataTables/datatables.min.css"/>
+<script type="text/javascript" src="pages/js/DataTables/datatables.min.js"></script>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Crear y editar Inputs (Negocios)</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Crear y editar
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Nuevo Negocio</label>
+                        <input id="nuevoneg" class="form-control" placeholder="Nuevo negocio">  
+                        <br>
+                        <button type="button" class="btn btn-outline btn-default" id="btncrear">Crear</button>
+                    </div><hr>
+                    <div class="form-group">
+                        <label>Busca por CNAE</label>
+                        <input id="buscacnae" class="form-control" placeholder="Número de CNAE"><br>
+                        <button type="button" class="btn btn-outline btn-default" id="btnbuscar">Buscar</button><br><br>
+                        <span id="combocnaes"></span> 
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-6 -->
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Información
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="barra" id="barraUpload"><spam id="Evo"></spam></div>
+                    <span id="campo1"></span><br>
+                    <span id="campo2"></span><br>
+                    <span id="campo3"></span><br>
+                    <span id="botones"></span>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->
+
+<!-- Custom Theme JavaScript -->
+<script src="pages/js/D1.js"></script>
+

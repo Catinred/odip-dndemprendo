@@ -1,0 +1,33 @@
+
+<style>
+  #map {
+    height: 100%;
+  }
+  #floating-panel {
+    position: absolute;
+    top: 20px;
+    left: 25%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    font-family: 'Roboto','sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+  }
+</style>
+<div class="container-fluid">
+    <div id="floating-panel">
+      <input id="address" type="textbox" value="Sydney, NSW">
+      <input id="submit" type="button" value="Geocode"> <hr>
+      <input id="boxlat" type="textbox" >
+      <input id="boxlng" type="textbox" >
+    </div>
+
+    <div id="googlemap"></div>
+</div>
+<!-- Custom Theme JavaScript -->
+<script src="js/Z1.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNDrIrWABoaDtsu5TFcYieUHdJFd1YEPY&signed_in=true&callback=initMap" async defer></script>
