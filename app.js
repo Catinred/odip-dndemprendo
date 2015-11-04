@@ -46,6 +46,7 @@ app.post('/adup1', function (req, res) {appl.adup1(req, res);});
 app.post('/upCrits', function (req, res) {appl.upCrits(req, res);});
 app.post('/upItem', function (req, res) {appl.upItem(req, res);});
 app.post('/del1', function (req, res) {appl.del1(req, res);});
+app.post('/versolicitud', function (req, res) {appl.versolicitud(req, res);});
 
 app.post('/dTotales', function (req, res) {appl.dTotales(req, res);});
 app.post('/dataCharts', function (req, res) {appl.dataCharts(req, res);});

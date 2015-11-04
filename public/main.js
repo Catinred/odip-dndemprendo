@@ -340,3 +340,8 @@ function showChartA(idchart, adatos){
 
     });
 };
+
+//BARRA DE AVISO DE COOKIES
+function PonerCookie(){
+    document.getElementById("barraaceptacion").style.display="none";
+}

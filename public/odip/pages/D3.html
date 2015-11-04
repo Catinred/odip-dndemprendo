@@ -1,0 +1,473 @@
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Mapa de resultados de un negocio</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Crear y editar
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="form-group">
+                        <label>Busca por CNAE</label>
+                        <input id="buscacnae" class="form-control" placeholder="Número de CNAE"><br>
+                        <button type="button" class="btn btn-outline btn-default" id="btnbuscar">Buscar</button><br><br>
+                        <span id="combocnaes"></span><br>
+                        <span id="botones1"></span><br>
+                        <span id="campo2"></span>
+                    </div>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row" id="panel_r" style="display:none">
+        <div class="col-lg-12">
+            <h2>Resultados</h2><hr><br>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row" id="panel_r1" style="display:none">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Resultado 1
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row" style="clear:left">
+                        <!-- Map Column -->
+                        <div class="col-md-8">
+                            <!-- Embedded Google Map -->
+                            <spam id="resultado1">1</spam>
+                            <!-- FUNCIONA: <iframe width="100%" height="400px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="html/iframes/Map_Result1.html"></iframe> -->
+                        </div>
+                        <!-- Contact Details Column -->
+                        <div class="col-md-4">
+                            <h3><spam id="1L0">1L0</spam></h3>
+                            <p><spam id="1L1">1L1</spam><br><spam id="1L2">1L2</spam><br></p>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <span id="1T0" class="badge"></span><i class="fa fa-bar-chart"></i> Valoración general
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="1T1" class="badge"></span><i class="fa fa-users"></i> clientes
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="1T2" class="badge"></span><i class="fa fa-bullseye"></i> Ubicación
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="1T3" class="badge"></span><i class="fa fa-user-md"></i> Contratación de personal
+                                </li>
+                            </ul><!-- http://fortawesome.github.io/Font-Awesome/icons/ -->
+                            <button type="button" class="btn btn-outline btn-default" id="btndetalles1">Ver más detalles</button>
+                            <script>$('#btndetalles1').click ( function () {$('#detalles1').css("display", "block");mostrarGraficos(1);});</script>
+                        </div>
+                    </div><br>                   
+                    <div class="row" id="detalles1" style="display:none; height:520px">
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Más información</div>
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><span id="1A1" class="badge"></span>Superficie:</li>
+                                        <li class="list-group-item"><span id="1A2" class="badge"></span>Población:</li>
+                                        <li class="list-group-item"><span id="1A3" class="badge"></span>Densidad:</li>
+                                        <li class="list-group-item"><span id="1A4" class="badge"></span>Edad media hombres:</li>
+                                        <li class="list-group-item"><span id="1A5" class="badge"></span>Edad media mujeres:</li>
+                                        <li class="list-group-item"><span id="1A6" class="badge"></span>Tasa dependencia:</li>
+                                        <li class="list-group-item"><span id="1A7" class="badge"></span>Tasa envejecimiento:</li>
+                                        <li class="list-group-item"><span id="1A8" class="badge"></span>Tasa sobreenvejecimiento:</li>
+                                        <li class="list-group-item"><span id="1A9" class="badge"></span>Índice juventud:</li>
+                                        <li class="list-group-item"><span id="1A10" class="badge"></span>Índice maternidad:</li>
+                                        <li class="list-group-item"><span id="1A11" class="badge"></span>Índice infancia:</li>
+                                        <li class="list-group-item"><span id="1A12"></span></li>
+
+                                    </ul><!-- http://fortawesome.github.io/Font-Awesome/icons/ -->
+                                <div class="panel-body"></div>
+                            </div>
+                        </div>    
+                        <div class="col-md-5">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Gráficos</div>
+                                <div class="panel-body" style="height:460px"><!-- ; border: 1px dotted black -->
+                                    <div class="col-md-6"><div id="chart1B1" style="height:150px"></div></div>
+                                    <div class="col-md-6"><div id="chart1B2" style="height:150px"></div></div>
+                                    <div class="col-md-6"><div id="chart1B3" style="height:150px"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Puntos de interés</div>
+                                <div class="panel-body">
+                                    <ul><spam id="listItms1"></spam></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row" id="panel_r2" style="display:none">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Resultado 2
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row" style="clear:left">
+                        <!-- Map Column -->
+                        <div class="col-md-8">
+                            <!-- Embedded Google Map -->
+                            <spam id="resultado2">2</spam>
+                        </div>
+                        <!-- Contact Details Column -->
+                        <div class="col-md-4">
+                            <h3><spam id="2L0">2L0</spam></h3>
+                            <p><spam id="2L1">2L1</spam><br><spam id="2L2">2L2</spam><br></p>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <span id="2T0" class="badge"></span><i class="fa fa-bar-chart"></i> Valoración general
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="2T1" class="badge"></span><i class="fa fa-users"></i> clientes
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="2T2" class="badge"></span><i class="fa fa-bullseye"></i> Ubicación
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="2T3" class="badge"></span><i class="fa fa-user-md"></i> Contratación de personal
+                                </li>
+                            </ul><!-- http://fortawesome.github.io/Font-Awesome/icons/ -->
+                            <button type="button" class="btn btn-outline btn-default" id="btndetalles2">Ver más detalles</button>
+                            <script>$('#btndetalles2').click ( function () {$('#detalles2').css("display", "block");mostrarGraficos(2);});</script>
+                        </div>
+                    </div><br>
+
+                    <div class="row" id="detalles2" style="display:none; height:520px">
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Más información</div>
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><span id="2A1" class="badge"></span>Superficie:</li>
+                                        <li class="list-group-item"><span id="2A2" class="badge"></span>Población:</li>
+                                        <li class="list-group-item"><span id="2A3" class="badge"></span>Densidad:</li>
+                                        <li class="list-group-item"><span id="2A4" class="badge"></span>Edad media hombres:</li>
+                                        <li class="list-group-item"><span id="2A5" class="badge"></span>Edad media mujeres:</li>
+                                        <li class="list-group-item"><span id="2A6" class="badge"></span>Tasa dependencia:</li>
+                                        <li class="list-group-item"><span id="2A7" class="badge"></span>Tasa envejecimiento:</li>
+                                        <li class="list-group-item"><span id="2A8" class="badge"></span>Tasa sobreenvejecimiento:</li>
+                                        <li class="list-group-item"><span id="2A9" class="badge"></span>Índice juventud:</li>
+                                        <li class="list-group-item"><span id="2A10" class="badge"></span>Índice maternidad:</li>
+                                        <li class="list-group-item"><span id="2A11" class="badge"></span>Índice infancia:</li>
+                                        <li class="list-group-item"><span id="2A12"></span></li>
+
+                                    </ul><!-- http://fortawesome.github.io/Font-Awesome/icons/ -->
+                                <div class="panel-body"></div>
+                            </div>
+                        </div>    
+                        <div class="col-md-5">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Gráficos</div>
+                                <div class="panel-body" style="height:460px"><!-- ; border: 1px dotted black -->
+                                    <div class="col-md-6"><div id="chart2B1" style="height:150px"></div></div>
+                                    <div class="col-md-6"><div id="chart2B2" style="height:150px"></div></div>
+                                    <div class="col-md-6"><div id="chart2B3" style="height:150px"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Puntos de interés</div>
+                                <div class="panel-body">
+                                    <ul><spam id="listItms2"></spam></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row" id="panel_r3" style="display:none">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Resultado 3
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">                  
+                    <div class="row" style="clear:left">
+                        <!-- Map Column -->
+                        <div class="col-md-8">
+                            <!-- Embedded Google Map -->
+                            <spam id="resultado3">3</spam>
+                        </div>
+                        <!-- Contact Details Column -->
+                        <div class="col-md-4">
+                            <h3><spam id="3L0">3L0</spam></h3>
+                            <p><spam id="3L1">3L1</spam><br><spam id="3L2">3L2</spam><br></p>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <span id="3T0" class="badge"></span><i class="fa fa-bar-chart"></i> Valoración general
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="3T1" class="badge"></span><i class="fa fa-users"></i> clientes
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="3T2" class="badge"></span><i class="fa fa-bullseye"></i> Ubicación
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="3T3" class="badge"></span><i class="fa fa-user-md"></i> Contratación de personal
+                                </li>
+                            </ul><!-- http://fortawesome.github.io/Font-Awesome/icons/ -->
+                            <button type="button" class="btn btn-outline btn-default" id="btndetalles3">Ver más detalles</button>
+                            <script>$('#btndetalles3').click ( function () {$('#detalles3').css("display", "block");mostrarGraficos(3);});</script>
+                        </div>
+                    </div><br>
+
+                    <div class="row" id="detalles3" style="display:none; height:520px">
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Más información</div>
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><span id="3A1" class="badge"></span>Superficie:</li>
+                                        <li class="list-group-item"><span id="3A2" class="badge"></span>Población:</li>
+                                        <li class="list-group-item"><span id="3A3" class="badge"></span>Densidad:</li>
+                                        <li class="list-group-item"><span id="3A4" class="badge"></span>Edad media hombres:</li>
+                                        <li class="list-group-item"><span id="3A5" class="badge"></span>Edad media mujeres:</li>
+                                        <li class="list-group-item"><span id="3A6" class="badge"></span>Tasa dependencia:</li>
+                                        <li class="list-group-item"><span id="3A7" class="badge"></span>Tasa envejecimiento:</li>
+                                        <li class="list-group-item"><span id="3A8" class="badge"></span>Tasa sobreenvejecimiento:</li>
+                                        <li class="list-group-item"><span id="3A9" class="badge"></span>Índice juventud:</li>
+                                        <li class="list-group-item"><span id="3A10" class="badge"></span>Índice maternidad:</li>
+                                        <li class="list-group-item"><span id="3A11" class="badge"></span>Índice infancia:</li>
+                                        <li class="list-group-item"><span id="3A12"></span></li>
+
+                                    </ul><!-- http://fortawesome.github.io/Font-Awesome/icons/ -->
+                                <div class="panel-body"></div>
+                            </div>
+                        </div>    
+                        <div class="col-md-5">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Gráficos</div>
+                                <div class="panel-body" style="height:460px"><!-- ; border: 1px dotted black -->
+                                    <div class="col-md-6"><div id="chart3B1" style="height:150px"></div></div>
+                                    <div class="col-md-6"><div id="chart3B2" style="height:150px"></div></div>
+                                    <div class="col-md-6"><div id="chart3B3" style="height:150px"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Puntos de interés</div>
+                                <div class="panel-body">
+                                    <ul><spam id="listItms3"></spam></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row" id="panel_r4" style="display:none">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Resultado 4
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row" style="clear:left">
+                        <!-- Map Column -->
+                        <div class="col-md-8">
+                            <!-- Embedded Google Map -->
+                            <spam id="resultado4">4</spam>
+                        </div>
+                        <!-- Contact Details Column -->
+                        <div class="col-md-4">
+                            <h3><spam id="4L0">4L0</spam></h3>
+                            <p><spam id="4L1">4L1</spam><br><spam id="4L2">4L2</spam><br></p>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <span id="4T0" class="badge"></span><i class="fa fa-bar-chart"></i> Valoración general
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="4T1" class="badge"></span><i class="fa fa-users"></i> clientes
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="4T2" class="badge"></span><i class="fa fa-bullseye"></i> Ubicación
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="4T3" class="badge"></span><i class="fa fa-user-md"></i> Contratación de personal
+                                </li>
+                            </ul><!-- http://fortawesome.github.io/Font-Awesome/icons/ -->
+                            <button type="button" class="btn btn-outline btn-default" id="btndetalles4">Ver más detalles</button>
+                            <script>$('#btndetalles4').click ( function () {$('#detalles4').css("display", "block");mostrarGraficos(4);});</script>
+                        </div>
+                    </div><br>
+
+                    <div class="row" id="detalles4" style="display:none; height:520px">
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Más información</div>
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><span id="4A1" class="badge"></span>Superficie:</li>
+                                        <li class="list-group-item"><span id="4A2" class="badge"></span>Población:</li>
+                                        <li class="list-group-item"><span id="4A3" class="badge"></span>Densidad:</li>
+                                        <li class="list-group-item"><span id="4A4" class="badge"></span>Edad media hombres:</li>
+                                        <li class="list-group-item"><span id="4A5" class="badge"></span>Edad media mujeres:</li>
+                                        <li class="list-group-item"><span id="4A6" class="badge"></span>Tasa dependencia:</li>
+                                        <li class="list-group-item"><span id="4A7" class="badge"></span>Tasa envejecimiento:</li>
+                                        <li class="list-group-item"><span id="4A8" class="badge"></span>Tasa sobreenvejecimiento:</li>
+                                        <li class="list-group-item"><span id="4A9" class="badge"></span>Índice juventud:</li>
+                                        <li class="list-group-item"><span id="4A10" class="badge"></span>Índice maternidad:</li>
+                                        <li class="list-group-item"><span id="4A11" class="badge"></span>Índice infancia:</li>
+                                        <li class="list-group-item"><span id="4A12"></span></li>
+
+                                    </ul><!-- http://fortawesome.github.io/Font-Awesome/icons/ -->
+                                <div class="panel-body"></div>
+                            </div>
+                        </div>    
+                        <div class="col-md-5">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Gráficos</div>
+                                <div class="panel-body" style="height:460px"><!-- ; border: 1px dotted black -->
+                                    <div class="col-md-6"><div id="chart4B1" style="height:150px"></div></div>
+                                    <div class="col-md-6"><div id="chart4B2" style="height:150px"></div></div>
+                                    <div class="col-md-6"><div id="chart4B3" style="height:150px"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Puntos de interés</div>
+                                <div class="panel-body">
+                                    <ul><spam id="listItms4"></spam></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row" id="panel_r5" style="display:none">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    Resultado 5
+                </div>
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="row" style="clear:left">
+                        <!-- Map Column -->
+                        <div class="col-md-8">
+                            <!-- Embedded Google Map -->
+                            <spam id="resultado5">5</spam>
+                        </div>
+                        <!-- Contact Details Column -->
+                        <div class="col-md-4">
+                            <h3><spam id="5L0">5L0</spam></h3>
+                            <p><spam id="5L1">5L1</spam><br><spam id="5L2">5L2</spam><br></p>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <span id="5T0" class="badge"></span><i class="fa fa-bar-chart"></i> Valoración general
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="5T1" class="badge"></span><i class="fa fa-users"></i> clientes
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="5T2" class="badge"></span><i class="fa fa-bullseye"></i> Ubicación
+                                </li>
+                                <li class="list-group-item">
+                                    <span id="5T3" class="badge"></span><i class="fa fa-user-md"></i> Contratación de personal
+                                </li>
+                            </ul><!-- http://fortawesome.github.io/Font-Awesome/icons/ -->
+                            <button type="button" class="btn btn-outline btn-default" id="btndetalles5">Ver más detalles</button>
+                            <script>$('#btndetalles5').click ( function () {$('#detalles5').css("display", "block");mostrarGraficos(5);});</script>
+                        </div>
+                    </div><br>
+
+                    <div class="row" id="detalles5" style="display:none; height:520px">
+                        <div class="col-md-3">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Más información</div>
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><span id="5A1" class="badge"></span>Superficie:</li>
+                                        <li class="list-group-item"><span id="5A2" class="badge"></span>Población:</li>
+                                        <li class="list-group-item"><span id="5A3" class="badge"></span>Densidad:</li>
+                                        <li class="list-group-item"><span id="5A4" class="badge"></span>Edad media hombres:</li>
+                                        <li class="list-group-item"><span id="5A5" class="badge"></span>Edad media mujeres:</li>
+                                        <li class="list-group-item"><span id="5A6" class="badge"></span>Tasa dependencia:</li>
+                                        <li class="list-group-item"><span id="5A7" class="badge"></span>Tasa envejecimiento:</li>
+                                        <li class="list-group-item"><span id="5A8" class="badge"></span>Tasa sobreenvejecimiento:</li>
+                                        <li class="list-group-item"><span id="5A9" class="badge"></span>Índice juventud:</li>
+                                        <li class="list-group-item"><span id="5A10" class="badge"></span>Índice maternidad:</li>
+                                        <li class="list-group-item"><span id="5A11" class="badge"></span>Índice infancia:</li>
+                                        <li class="list-group-item"><span id="5A12"></span></li>
+
+                                    </ul><!-- http://fortawesome.github.io/Font-Awesome/icons/ -->
+                                <div class="panel-body"></div>
+                            </div>
+                        </div>    
+                        <div class="col-md-5">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Gráficos</div>
+                                <div class="panel-body" style="height:460px"><!-- ; border: 1px dotted black -->
+                                    <div class="col-md-6"><div id="chart5B1" style="height:150px"></div></div>
+                                    <div class="col-md-6"><div id="chart5B2" style="height:150px"></div></div>
+                                    <div class="col-md-6"><div id="chart5B3" style="height:150px"></div></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Puntos de interés</div>
+                                <div class="panel-body">
+                                    <ul><spam id="listItms5"></spam></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div><br>
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+    </div>
+    <!-- /.row -->
+</div>
+<!-- /.container-fluid -->
+
+<!-- Custom Theme JavaScript -->
+<script src="pages/js/D3.js"></script>
+
+<!-- Morris Charts JavaScript -->
+<script src="js/raphael-min.js"></script>
+<script src="js/morris.min.js"></script>
+<script src="js/morris-data.js"></script>

@@ -392,6 +392,7 @@ function data1 (req, res) {
 
 	switch (req.body.a) {
 		case "B1loc": consultaSQL = "SELECT * FROM localizaciones WHERE localizaciones0="+ req.body.b;break;
+		case "B3loc": consultaSQL = "SELECT localizaciones4, localizaciones5, localizaciones6 FROM localizaciones WHERE localizaciones0="+ req.body.b;break;
 		case "D1Neg": consultaSQL = "SELECT * FROM cnae WHERE cnae0="+ req.body.b;break;
 		case "B2Crit": consultaSQL = "SELECT * FROM criterios LEFT JOIN grcriterios ON criterios1=grcriterios0 ORDER BY criterios0 ASC";break;
 		case "D2Crit": consultaSQL = "SELECT * FROM criterios LEFT JOIN grcriterios ON criterios1=grcriterios0 ORDER BY criterios0 ASC";break;
@@ -1147,6 +1148,81 @@ function dataResp (req, res) {
 		});
 };
 exports.dataResp = dataResp;
+
+function versolicitud (req, res) {
+
+	var idNegocio = req.body.a;
+	var aLocsMax = [];
+	
+	if (idNegocio>0) {
+		
+	//PASO 2B- USANDO VALORACIONES DE CNAE, SELECCIONO LAS LOCALIZACIONES Y LAS ORDENO.
+		var consultaSQL = 'SELECT * FROM localizaciones';
+
+		connection.query(consultaSQL,
+			function (err, results, fields) {
+				if (err) {throw err;} else {
+
+					var aResults = pasarJSONaArray(results);
+
+						var consultaSQL2 = 'SELECT * FROM cnae WHERE cnae0='+idNegocio;
+
+						connection.query(consultaSQL2,
+							function (err2, results2, fields2) {
+								if (err2) {throw err2;} else {
+
+									var aResults2 = pasarJSONaArray(results2);
+
+									//console.log("adconsulta(): aResults.length "+aResults.length);
+									//console.log("adconsulta(): aResults2.length "+aResults2.length);
+									aResults2[0] = eval(aResults2[0]);
+
+									//2.A- MULTIPLICO CADA LOCALIZACIÓN POR LA SOLICITUD, CRITERIO A CRITERIO.
+
+									//console.log("adconsulta(Auto): MULTIPLICADORES LOC: aResults: "+aResults);
+									//console.log("adconsulta(Auto): MULTIPLICADORES CRIT: aResults2: "+aResults2);
+
+									for(var i=0; i < aResults.length; i++) {//PARA CADA LOCALIZACION
+										var acum = 0; var acum1 = 0; var acum2 = 0; var acum3 = 0;
+										var h1 = 8;//En la columna 8 de la tabla "localizaciones" comienzan los criterios.
+										var h2 = 5;//En la columna 5 de la tabla "cnae" comienzan los criterios.
+										var h2T = 5;//FIJO. En la columna 5 de la tabla "cnae" comienzan los criterios.
+										aResults[i] = eval(aResults[i]);
+										for(var j=1; j < aResults2[0].length-h2T; j++) {//PARA CADA CRITERIO
+
+											//console.log("adconsulta(): aResults2[0].length "+aResults2[0].length);
+
+											//if (i<1){console.log("adconsulta("+j+"/"+aResults2[0].length+"/"+h1+"/"+h2+"/"+h2T+"): Ponderando... "+acum+"+"+aResults[i][h1]+"*"+aResults2[0][h2]);};
+											
+											var nuevosumando = parseInt(aResults[i][h1])*parseInt(aResults2[0][h2]);
+											acum += nuevosumando;
+											if (h1<15) {acum1 += nuevosumando;};//Criterios de Clientes
+											if (h1>14 && h1<47) {acum2 += nuevosumando;};//Criterios de Ubicación
+											if (h1>46) {acum3 += nuevosumando;};//Criterios de Personal
+											h1++;h2++;
+										};
+										acum = acum.toFixed(0); acum1 = acum1.toFixed(0);
+										acum2 = acum2.toFixed(0); acum3 = acum3.toFixed(0);
+
+										aLocsMax.push([aResults[i][0],acum,acum1,acum2,acum3]);
+										//<< Guardo la relación del id de la localización y su puntuación.
+										//console.log("adconsulta(): [aResults["+i+"][0],acum]: "+aResults[i][0]+","+acum);
+									};
+
+									console.log("versolicitud: aLocsMax: "+aLocsMax);
+									aLocsMax.sort(function(a, b){return b[1]-a[1]});//Ordeno de mayor a menor por el segundo valor de cada pareja.
+									//console.log("adconsulta(): aLocsMax(DESC): "+aLocsMax);
+									aLocsMax.splice(5);//Dejo sólo los 5 mejores resultados
+									//console.log("adconsulta(): aLocsMax(Splice): "+aLocsMax);
+
+									//2.B- MUESTRO LAS LOCALIZACIONES ORDENADAS
+									showLocs(aLocsMax,res);
+
+					};});//Primera consulta
+				};});//Segunda consulta
+	};
+};
+exports.versolicitud = versolicitud;
 
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX	
